@@ -6,6 +6,8 @@
 using namespace std;
 
 void copy(string, string);
+void F();
+int N, K;
 
 void print(string s)
 {
@@ -21,7 +23,42 @@ int main()
 	copy(in, out);
 	print("hello world");
 
+
+	cout << "input N ";
+cin >> N;
+cout << "input K ";
+cin >> K;
+
+
+F();
+
+
 	return 0;
+}
+void F()
+{
+	for (int i = 0; i < K-1; i++) // заполняем первые К человек 0
+		cout << 0 << ' ';
+
+	cout << endl;
+
+			//копия чтобы не изменять глобальные переменные
+
+
+	
+	for (int i = 0; i <K-1; i++)
+	{
+		int next_data = 1;
+		int current_N = N;
+		// для первых К*2 т.к. первые К-1 не умрут
+		for (int j = 0; j < K; j++)
+		{	// идея в том что идем по порядку но очередь человека определяется с шагом К нужн посчитать сколько
+			// таких шагов будет до конца списка и прибавить какого по счету убили предыдущего
+			cout << next_data + i << ' '; // выводим номер счета какой умрет человек
+			next_data = next_data + current_N / K; // следущий в очерди умрет только после того как умрут все кратные К
+			current_N--; // т.к. умер один уже надо проверять делимость меньшее количество 
+		}
+	}
 }
 void copy(string s_in, string s_out)
 {
