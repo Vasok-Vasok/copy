@@ -7,6 +7,11 @@ using namespace std;
 
 void copy(string, string);
 
+void print(string s)
+{
+	cout<<s;
+}
+
 int main()
 {
 
@@ -14,6 +19,7 @@ int main()
 	string out("C:\\Users\\Пользователь\\Desktop\\26.02.26(1).txt");
 
 	copy(in, out);
+	print("hello world");
 
 	return 0;
 }
